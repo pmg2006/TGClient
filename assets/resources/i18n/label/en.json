@@ -6,6 +6,8 @@
     "gifts": "Gifts",
     "mails": "Mails",
     "user": "User",
-    "OtherLogin": "Received login from another location"
-
+    "OtherLogin": "Received login from another location",
+    "Volume acumulado de apostas:": "Volume acumulado de apostas:",
+    "Volume de apostas deste mes:": "Volume de apostas deste mes:",
+    "manter a divisao: {0}": "Manter a divisao: {0}"
 }
