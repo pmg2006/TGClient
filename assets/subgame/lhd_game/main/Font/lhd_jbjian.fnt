@@ -1,0 +1,20 @@
+info face="Arial" size=10 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+common lineHeight=10 base=46 scaleW=601 scaleH=46 pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="lhd_jbjian.png"
+chars count=16
+char id=44   x=474    y=0     width=22    height=46    xoffset=0     yoffset=0     xadvance=14    page=0  chnl=15
+char id=45   x=73    y=0     width=38    height=46    xoffset=0     yoffset=0     xadvance=24    page=0  chnl=15
+char id=46   x=0    y=0     width=25    height=46    xoffset=0     yoffset=0     xadvance=11    page=0  chnl=15
+char id=48   x=111    y=0     width=37    height=46    xoffset=0     yoffset=0     xadvance=23    page=0  chnl=15
+char id=49   x=148    y=0     width=31    height=46    xoffset=0     yoffset=0     xadvance=17    page=0  chnl=15
+char id=50   x=179    y=0     width=38    height=46    xoffset=0     yoffset=0     xadvance=24    page=0  chnl=15
+char id=51   x=217    y=0     width=36    height=46    xoffset=0     yoffset=0     xadvance=22    page=0  chnl=15
+char id=52   x=253    y=0     width=39    height=46    xoffset=0     yoffset=0     xadvance=25    page=0  chnl=15
+char id=53   x=292    y=0     width=37    height=46    xoffset=0     yoffset=0     xadvance=23    page=0  chnl=15
+char id=54   x=329    y=0     width=37    height=46    xoffset=0     yoffset=0     xadvance=23    page=0  chnl=15
+char id=55   x=366    y=0     width=36    height=46    xoffset=0     yoffset=0     xadvance=22    page=0  chnl=15
+char id=56   x=402    y=0     width=37    height=46    xoffset=0     yoffset=0     xadvance=23    page=0  chnl=15
+char id=57   x=439    y=0     width=37    height=46    xoffset=0     yoffset=0     xadvance=23    page=0  chnl=15
+char id=19975   x=538    y=0     width=42    height=46    xoffset=0     yoffset=0     xadvance=32    page=0  chnl=15
+char id=20159   x=496    y=0     width=42    height=46    xoffset=0     yoffset=0     xadvance=32    page=0  chnl=15
+char id=20803   x=25    y=0     width=48    height=46    xoffset=0     yoffset=0     xadvance=34    page=0  chnl=15

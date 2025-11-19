@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "086251bf-bc8a-4dc8-822d-03fc0e5c9621",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 51,
+  "height": 49,
+  "platformSettings": {},
+  "subMetas": {
+    "BattlePass_Mainlayer_Crown": {
+      "ver": "1.0.6",
+      "uuid": "41ca9d6c-ad7e-4d9e-aeed-ff1277b8da1c",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "086251bf-bc8a-4dc8-822d-03fc0e5c9621",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": 0,
+      "trimX": 2,
+      "trimY": 0,
+      "width": 49,
+      "height": 49,
+      "rawWidth": 51,
+      "rawHeight": 49,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,170 @@
+import { _decorator, Component, Node, RichText, JsonAsset, Label, director, CCObject, Renderable2D, EditBox, assetManager } from 'cc';
+import { EDITOR } from 'cc/env';
+const { ccclass, property } = _decorator;
+interface MyLabel extends Label {
+    __lang_id: string;
+    __params: string[];
+}
+export default new class super_i18n {
+
+    public map_data: Map<string, any> = new Map();
+    private _cur_lang: string = null;
+
+    public get cur_lang(): string {
+        return this._cur_lang;
+    }
+    public set cur_lang(v: string) {
+        if (EDITOR) {
+            return;
+        }
+        this._cur_lang = v;
+        this._update_all();
+    }
+
+    public default_lang: string = "en";
+
+    constructor() {
+        if (EDITOR) {
+            return;
+        }
+        this.cur_lang = this.default_lang;
+        let self = this;
+
+        function get_string(_label: MyLabel, data: string | string[]): string {
+            let lang_id: string, list: string[] = [], value: string;
+            if (data instanceof Array && data.length > 0) {
+                lang_id = data.shift();;
+                list = data;
+            } else {
+                lang_id = data as string;
+                list = [];
+            }
+            if (self._get_config(lang_id) != null) {
+                _label.__lang_id = lang_id;
+                _label.__params = list;
+                value = self.get_value(lang_id, ...list);
+            } else {
+                value = lang_id;
+            }
+            return value;
+        }
+        function hook_comp(comp: any) {
+            let label_string = Object.getOwnPropertyDescriptor(comp.prototype, "string");
+            Object.defineProperty(comp.prototype, "string", {
+                set: function (data: string | string[]) {
+                    label_string.set.call(this, get_string(this, data));
+                }
+            });
+            const fun_Label_onLoad = comp.prototype.onLoad;
+            comp.prototype.onLoad = function () {
+                fun_Label_onLoad && fun_Label_onLoad.call(this);
+                this.string = this.string;
+            };
+        }
+        //Label
+        hook_comp(Label);
+        //RichText
+        hook_comp(RichText);
+        //Editor
+        hook_comp(EditBox);
+    };
+
+    /**
+     * load list data by bundle
+     * @param bundle bundle name
+     * @param path res dir
+     * @param complete 
+     */
+    public load_by_bundle_res_dir(bundle: string, path: string, complete: (err?: Error) => void) {
+        assetManager.getBundle(bundle).loadDir(path, JsonAsset, (err, list) => {
+            if (!err && list.length) {
+                this.load_by_list_res(list);
+            }
+            complete(err);
+        });
+    }
+
+    /**
+     * load list data
+     * @param list 
+     * @example super_i18n.load_list([{name:"en",json:{id_1:"hello",...},...]})
+     */
+    public load_by_list_res(list: { name: string, json: any; }[]) {
+        for (let key in list) {
+            const res = list[key];
+            this._load(res.name, res.json as any);
+        }
+        this._update_all();
+    }
+
+    /**
+     * get language value by id
+     * @param id language id
+     * @param p replace %s
+     * @returns value
+     * @example super_i18n.get_value("lang_hello")
+     */
+    public get_value(id: string, ...p: string[]): string {
+        let value = this._get_config(id);
+        if (!value) {
+            return id + p.toString();
+        }
+        let arr = p;
+        if (arr) {
+            let index = 0;
+            value = value.replace(/%s/g, (substring: string, arg) => {
+                return arr[index++];
+            });
+        }
+        return value;
+    }
+
+    private _load(lang: string, data: any) {
+        let _data = this.map_data.get(lang);
+        if (!_data) {
+            _data = {};
+            this.map_data.set(lang, _data);
+        }
+        _data = Object.assign(_data, data);
+    }
+
+    private _get_config(id: string) {
+        let value = this._get_config_lang(id, this.cur_lang);
+        if (!value) {
+            //没有配置这个语言，使用默认语言
+            value = this._get_config_lang(id, this.default_lang);
+        }
+        return value;
+    }
+
+    private _get_config_lang(id: string, lang: string) {
+        let data = this.map_data.get(lang);
+        if (!data) return null;
+        return data[id];
+    }
+
+    private _update_all() {
+        this._update_by_comps(Label);
+        this._update_by_comps(RichText);
+        this._update_by_comps(EditBox);
+    }
+
+    private _update_by_comps(comp: any) {
+        const scene = director.getScene();
+        if (!scene || !scene.getComponentsInChildren) return;
+        const comps = scene.getComponentsInChildren(comp);
+        comps.forEach((value: any) => {
+            this._update_string(value);
+        });
+    }
+
+    private _update_string(label: MyLabel) {
+        if (!label || !label.__lang_id) return;
+        let list = [label.__lang_id];
+        if (label.__params) {
+            list.push(...label.__params);
+        }
+        label.string = list as any;
+    }
+
+};

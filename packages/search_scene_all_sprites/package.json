@@ -1,0 +1,20 @@
+{
+  "name": "search_scene_all_sprites",
+  "version": "1.0.3",
+  "description": "搜索场景引用的所有精灵图片",
+  "author": "@dndnkkk",
+  "main": "main.js",
+  "main-menu": {
+    "i18n:MAIN_MENU.package.title/i18n:search_scene_all_sprites.title": {
+      "message": "search_scene_all_sprites:open"
+    }
+  },
+  "panel": {
+    "main": "panel/index.js",
+    "type": "dockable",
+    "title": "搜索场景引用的图片资源",
+    "width": 450,
+    "height": 668
+  },
+  "dependencies": {}
+}

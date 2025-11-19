@@ -1,0 +1,10 @@
+{
+  "name": "scene-resource-list",
+  "version": "1.0.0",
+  "description": "A simple Cocos Creator extension to list resources used in a scene",
+  "main": "main.js",
+  "author": "Your Name",
+  "editor": {
+    "main": "./main.js"
+  }
+}

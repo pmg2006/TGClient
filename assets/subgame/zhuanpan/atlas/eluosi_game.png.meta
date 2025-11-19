@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "e45f83ad-1d8d-4715-a5c8-e0ee5ff32f70",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1752,
+  "height": 842,
+  "platformSettings": {},
+  "subMetas": {
+    "eluosi_game": {
+      "ver": "1.0.6",
+      "uuid": "46109188-2a5b-47fc-9c69-157c6502f9fd",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "e45f83ad-1d8d-4715-a5c8-e0ee5ff32f70",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 1750,
+      "height": 840,
+      "rawWidth": 1752,
+      "rawHeight": 842,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

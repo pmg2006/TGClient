@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "5ad17f87-a39f-4fa9-80a0-92320bb49df5",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1227,
+  "height": 657,
+  "platformSettings": {},
+  "subMetas": {
+    "gui-longhudazhan-dialog-bg": {
+      "ver": "1.0.6",
+      "uuid": "5d035738-271e-4f5a-bf8f-0c77c2aa4975",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "5ad17f87-a39f-4fa9-80a0-92320bb49df5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1227,
+      "height": 657,
+      "rawWidth": 1227,
+      "rawHeight": 657,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

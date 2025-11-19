@@ -1,0 +1,155 @@
+//import { SEVER_RES } from "./msgDefine";
+
+//export type SERVER_ERROR = { [type: string]: SEVER_RES };
+export let ERRORCODE = {
+  UNKNOWN: { code: -1, errStr: "未知错误" },
+  SUCCEED: { code: 0, errStr: "發送成功/Send Complete" },
+  SUCCEED_HTTP: { code: 20000, errStr: "已成功/OK" },
+
+  TABLE_NO_CHAIRD: { code: 1, errStr: "位置已满/Full House" },
+  TABLE_NO_STARTEDLEAVE: { code: 2, errStr: "无法中途退出" },
+  TABLE_HAS_IN_TABLE: { code: 3, errStr: "你已经在房间内 ，请退出先" },
+  TABLE_SIT_FAIL: { code: 4, errStr: "位置已满/Full House" },
+  TABLE_ROOMCODE_EXIST: { code: 5, errStr: "房间号已存在" },
+  TABLE_DISMISS: { code: 6, errStr: "解散中" },
+  TABLE_SIT_FAIL_ANDRIONSINK: { code: 7, errStr: "机器人钩子未配置" },
+  TABLE_NO_EXIST: { code: 8, errStr: "房间不存在" },
+  TABLE_NO_USER: { code: 9, errStr: "用户不在房间里" },
+  TABLE_TABLEID_ERR: { code: 10, errStr: "非法桌子号" },
+  TABLE_NOTEXIST_NULL: { code: 11, errStr: "没有空闲的桌子了" },
+  TABLE_CHAIR_NOTNULL: { code: 12, errStr: "椅子上有人了" },
+  TABLE_FORBID_GAME: { code: 13, errStr: "你已被禁止进入游戏" },
+  TABLE_PASSWORD_REQ: { code: 14, errStr: "需要设置密码" },
+  TABLE_PASSWORD_ERROR: { code: 15, errStr: "密码不对" },
+
+  LOGIN_WECHAT_GET_ERR: { code: 1000, errStr: "微信获取用户资料失败" },
+  LOGIN_TOKEN_NOEXSIT: { code: 1001, errStr: "TOKEN不存在" },
+  FACE_BOOK_NOT_INFO: { code: 1002, errStr: "facebook获取用户资料失败" },
+  GOOGLE_NOT_INFO: { code: 1003, errStr: "google获取用户资料失败" },
+  LINE_NOT_INFO: { code: 1003, errStr: "line获取用户资料失败" },
+  ERROR_TIPS: { code: 5000, errStr: "统一错误提示,请替换这个说明" },
+
+  FRAME_NO_ROOM: { code: 9999, errStr: "房间未开启" },
+  FRAME_NO_GAME: { code: 10000, errStr: "游戏未配置" },
+  FRAME_PARAM_ERROR: { code: 10001, errStr: "参数错误" },
+  FRAME_NO_DIAMO_POLICY: { code: 10002, errStr: "游戏扣钻未配置" },
+  FRAME_NO_DIAMO: { code: 10003, errStr: "钻石不足" },
+  FRAME_MODIFY_CONTROL_ERR: { code: 10004, errStr: "修改房间控制配置失败" },
+  FRAME_GET_CONTROL_ERR: { code: 10005, errStr: "获取房间控制配置出错" },
+
+  SYS_RPC: { code: 15000, errStr: "RPC错误" },
+  SYS_ERROR: { code: 19999, errStr: "系统错误" },
+  SYS_NO_USER: { code: 20001, errStr: "用户不存在", errStrPt: "Usuário não existe"},
+  SYS_DISPATH: { code: 20002, errStr: "分配房间失败" },
+  SYS_NO_SERVER: { code: 20003, errStr: "服务未开启" },
+  SYS_NO_CODE: { code: 20004, errStr: "没有多余口令了" },
+  SYS_TABLE_FULL: { code: 20005, errStr: "已滿座/Full House" },
+  SYS_SIT_ING: { code: 20006, errStr: "坐下过程中,请稍后再试" },
+  SYS_HAS_FATHER: { code: 20007, errStr: "已經綁定了上級" },
+  SYS_NO_FATHER_REWARD: { code: 20008, errStr: "没有可领取的推荐奖励" },
+  SYS_BIND_SELF: { code: 20009, errStr: "不允許綁定自己" },
+  SYS_BNID_LOOP: { code: 20010, errStr: "不允許循環綁定" },
+  SYS_NO_SCORE_REWARD: { code: 20011, errStr: "没有可领取的金币奖励" },
+  SYS_NO_GOLDBEAN_REWARD: { code: 20012, errStr: "没有可领取的金豆奖励" },
+  SYS_NO_ORDER: { code: 20013, errStr: "订单不存在" },
+
+  CLUB_NO_ID: { code: 30000, errStr: "俱乐部不存在" },
+  CLUB_NO_QX: { code: 30001, errStr: "无权限" },
+  CLUB_NAME_ERR: { code: 30002, errStr: "俱乐部名称不合法" },
+  CLUB_CODE_ERR: { code: 30002, errStr: "俱乐部号码不足" },
+  CLUB_JOIN_INCLUB: { code: 30003, errStr: "已在俱乐部内" },
+  CLUB_JOIN_REPEAT: { code: 30004, errStr: "请勿重复申请" },
+  CLUB_ROOM_NO_DIAMO: { code: 30005, errStr: "俱乐部积分不足" },
+  CLUB_NO_BOX: { code: 30006, errStr: "包厢不存在" },
+  CLUB_ROOM_NO_QX: { code: 30007, errStr: "不是俱乐部成员无法加入" },
+  CLUB_ADD_SCORE_SELF: { code: 30008, errStr: "不能给自己转分" },
+  CLUB_ADD_SCORE_NO_AUTH: { code: 30009, errStr: "您不是管理员不能转分" },
+  CLUB_NOT_MEMBER: { code: 30010, errStr: "不是俱乐部成员" },
+  CLUB_HAS_FATHER: { code: 30011, errStr: "已经绑定过上级" },
+
+  SQL: { code: 50000, errStr: "用户名或密码错误" },
+  NOLOGIN: { code: 50001, errStr: "未登录" },
+
+  HTTP_ERROR: { code: 60000, errStr: "http错误" },
+
+  //业务错误
+  REPEATSIGN: { code: 70000, errStr: "重复签到" },
+  SIGN_CFG_ERROR: { code: 70001, errStr: "签到奖励未配置" },
+  ADV_MAX: { code: 70002, errStr: "进入广告已达到上限" },
+  CFG_TYPE_ERROR: { code: 70004, errStr: "没有此配置类型" },
+  BIND_MAX_FATHER: { code: 70005, errStr: "超过最大绑定层级" },
+  SHOP_NOT_FIND: { code: 70006, errStr: "找不到商品" },
+  SHOP_NOT_PAYTYPE: { code: 70008, errStr: "请选择一种支付方式" },
+  SHOP_NOT_ENOUGH: { code: 70009, errStr: "貨幣不足/Not Money" },
+  DRAW_NOT_ENOUGH: { code: 70010, errStr: "没有抽奖次数" },
+  //TRX
+  TRX_URL_NOTCFG: { code: 80000, errStr: "trx节点url未配置" },
+  TRX_CREATE_ADDR_ERROR: { code: 80001, errStr: "trx创建地址错误" },
+  TRX_WAIT: { code: 80002, errStr: "请稍后" },
+  TRX_REPEAT_BIND: { code: 80003, errStr: "重复绑定trx" },
+  LOTTERY_MAX_CNT: { code: 80004, errStr: "转盘次数超限制" },
+  PROP_NOT_HAVE: { code: 80005, errStr: "没有此道具" },
+  PROP_NOT_ENOUGH: { code: 80006, errStr: "道具数量不足" },
+  ITEM_NOT_FOUND: { code: 80007, errStr: "系统没有此物品" },
+  // 积分操作
+
+  USERINFO_NOT_FOUND: { code: 80008, errStr: "获取用户数据失败" },
+  /**积分扣除失败 */
+  INTEGRAL_FAILED: { code: 80009, errStr: "订单已完成，积分扣除失败" },
+  /**游戏异常 */
+  LESHI_ERROR: { code: 80010, errStr: "游戏异常" },
+
+  TRAVEL_LOGIN_ERROR: { code: 80011, errStr: "账户密码登陆异常" },
+  TRAVEL_REGISTER_ERROR: { code: 80012, errStr: "注册失败" },
+  TRAVEL_ASSETS_OPERATE_ERROR: { code: 80013, errStr: "资产操作失败" },
+  TRAVEL_ASSETS_FROZEN_ERROR: { code: 80014, errStr: "资产冻结与下发失败" },
+  TRAVEL_ASSETS_FIND_ERROR: { code: 80015, errStr: "资产查询失败" },
+  UPDATE_USER_INFO_ERROR: { code: 80016, errStr: "变更用户信息失败" },
+
+  SHOP_VIP_REPEAT: { code: 80020, errStr: "VIP未过期" },
+  REAL_NAME_AUTHORIZE_FAILED: { code: 80021, errStr: "实名认证失败" },
+
+  LOGIN_METHOD_UNSUPPORTED: {
+    code: 80022,
+    errStr: "当前登陆方式暂不支持, 请切换至极速账户登陆",
+  },
+  SEND_NOTIFICATION_LIMIT: { code: 80023, errStr: "验证码发送频繁" },
+  NOTIFICATION_VERIFY_EXPIRED: { code: 80024, errStr: "验证码校验超时" },
+  SEND_NOTIFICATION_FAILED: { code: 80024, errStr: "验证码发送失败" },
+  NOTIFICATION_VERIFY_FAILED: { code: 80025, errStr: "验证码校验失败" },
+  REGISTER_TICKET_FAILED: { code: 80026, errStr: "ticket校验失败" },
+  REGISTER_TICKET_EXPIRED: { code: 80027, errStr: "ticket超时" },
+  REGISTER_TICKET_DELETED: { code: 80028, errStr: "ticket已被使用" },
+
+  UNSUPPORTED_LOGIN_TIME: { code: 80029, errStr: "每日02-08时禁止登陆" },
+
+  NOT_ENOUGH_OTHER_SCORES: { code: 80030, errStr: "积分不够" },
+  DEDUCT_POINT_FAILED: { code: 80031, errStr: "积分扣减失败" },
+  OTHERSCORE_DEDUCT_CNT_MUST_BE_NEGATIVE: {
+    code: 80032,
+    errStr: "积分参数需要是负数",
+  },
+  TRAVEL_LOGIN_PASSWORD_ERROR: { code: 80033, errStr: "用户名或密码不正确" },
+  EMAIL_REWARD_ERR: { code: 80040, errStr: "道具参数错误" },
+  PASSWORD_FORMAT_ERROR: { code: 80041, errStr: "密碼參數格式錯誤" },
+  MOBILE_ALREADY_BE_BINDED: { code: 80042, errStr: "當前手機已被註冊" },
+  MOBILE_LOGIN_PASSWORD_ERROR: { code: 80043, errStr: "用户名或密码不正确" },
+
+  HAVE_BINDED_REFERRER: { code: 80044, errStr: "已绑定推荐人" },
+  HAVE_NO_ENOUGH_INVITEES: { code: 80045, errStr: "推荐名额不足" },
+
+  REWARD_HAS_BEEN_EARNED: { code: 80046, errStr: "奖励已被领取" },
+  REWARD_NOT_EXISTS: { code: 80047, errStr: "奖励配置不存在" },
+
+  AVAILABLE_AMOUNT_INSUFFICIENT: { code: 80048, errStr: "可提现金额不足" },
+  EXISTS_UNFINISHED_WITHDRAW_LOG: {
+    code: 80049,
+    errStr: "存在未完成的提现记录",
+  },
+  ACCOUNT_HAS_BIND_MOBILE: { code: 80050, errStr: "当前账户已经绑定手机" },
+  MAIL_REPEAT_BIND: { code: 80051, errStr: "当前用户已经绑定邮箱" },
+  MAIL_ALREADY_BE_BINDED: { code: 80052, errStr: "邮箱已经被其他人绑定" },
+  DAILY_WITHDRAW_COUNT_LIMIT: { code: 80053, errStr: "每日提现次数上限" },
+  SINGLE_WITHDRAW_AMOUNT_LIMIT: { code: 80054, errStr: "提现单笔金额上限" },
+  DAILY_WITHDRAW_AMOUNT_LIMIT: { code: 80055, errStr: "每日提现金额上限" },
+};

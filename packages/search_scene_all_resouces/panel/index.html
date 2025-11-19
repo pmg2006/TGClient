@@ -1,0 +1,17 @@
+<div id="app">
+    <h2>搜索场景引用的所有资源</h2>
+    <hr/>
+    <label>场景列表：</label>
+    <ui-select id='select' value="0" v-on:change="onSceneChange">
+        <option v-for="(index, item) in sceneList" v-value="{ index: index, value: item }">{{'['+(index+1)+']'+sceneList[index]}}</option>
+    </ui-select>
+    <hr/>
+    <ui-button id="btn" v-on:confirm="onBtnClick">开始搜索</ui-button>
+    <hr/>
+    <div class="flex-1 layout center fix-width">
+        <ui-box-container class='shadow height-limited' tabindex="-1">
+            <li class="layout horizontal center" v-for="(index, item) in result_path" v-value="item">{{result_path[index]}}</li>
+        </ui-box-container>
+    </div>
+</div>
+

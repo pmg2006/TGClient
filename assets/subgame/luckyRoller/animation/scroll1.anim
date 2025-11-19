@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"scroll1","_objFlags":0,"_native":"","_duration":5.5,"sample":60,"speed":1.3,"wrapMode":0,"curveData":{"props":{"position":[{"frame":0,"value":[0,158],"motionPath":[]},{"frame":4.666666666666667,"value":[0,3559,0]},{"frame":5.166666666666667,"value":[0,3613,0]},{"frame":5.5,"value":[0,3643,0]}]}},"events":[]}
